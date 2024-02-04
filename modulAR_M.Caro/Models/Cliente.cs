@@ -23,9 +23,6 @@ namespace modulAR_M.Caro.Models
         public Ubicacion Ubicacion { get; set; }
 
         public ICollection<Pedido> Pedidos { get; set; }
-        public ICollection<Proyecto> Proyectos { get; set; }
-        public ICollection<Empleo> Empleos { get; set; }
-
-        public ICollection<Pedido>? Pedidos { get; set; }
+        public ICollection<Postulacion> Postulacion { get; set; }
     }
 }
