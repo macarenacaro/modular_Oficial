@@ -59,14 +59,16 @@ namespace modulAR_M.Caro.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nif,Nombre,Email,Telefono,Direccion,Poblacion,CodigoPostal,UbicacionId,Imagen")] Cliente cliente, IFormFile file)
         {
-            if (ModelState.IsValid)
-            {
+          //  if (ModelState.IsValid)
+          // {
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+           //     return RedirectToAction(nameof(Index));
+           // }
             ViewData["UbicacionId"] = new SelectList(_context.Ubicaciones, "Id", "Ciudad", cliente.UbicacionId);
-            return View(cliente);
+           // return View(cliente);
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Clientes/Edit/5
@@ -98,11 +100,18 @@ namespace modulAR_M.Caro.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+          //  {
                 try
                 {
-                    _context.Update(cliente);
+
+                // Recuperar el producto original de la base de datos con la imagen actual
+                var originalCliente = await _context.Clientes.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+
+                // Restaurar la propiedad Imagen del producto original al modelo antes de actualizar
+                cliente.Imagen = originalCliente.Imagen;
+
+                _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -116,10 +125,13 @@ namespace modulAR_M.Caro.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
-            }
+             //  return RedirectToAction(nameof(Index));
+         //   }
             ViewData["UbicacionId"] = new SelectList(_context.Ubicaciones, "Id", "Ciudad", cliente.UbicacionId);
-            return View(cliente);
+          //   return View(cliente);
+
+            return RedirectToAction(nameof(Index));
+
         }
 
         // GET: Clientes/Delete/5
