@@ -52,10 +52,14 @@ namespace modulAR_M.Caro.Controllers
         // GET: Empleos/Create
         public IActionResult Create()
         {
+            var empleo = new Empleo
+            {
+                Fecha = DateTime.Today // o DateTime.Now, según tus necesidades
+            };
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Descripcion");
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Email");
             ViewData["UbicacionId"] = new SelectList(_context.Ubicaciones, "Id", "Ciudad");
-            return View();
+            return View(empleo);
         }
 
         // POST: Empleos/Create
@@ -63,18 +67,36 @@ namespace modulAR_M.Caro.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ClienteId,Titulo,Descripcion,Fecha,Salario,Imagen,Escaparate,CategoriaId,UbicacionId")] Empleo empleo, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,ClienteId,Titulo,Descripcion,Fecha,Salario,Imagen,Escaparate,CategoriaId,UbicacionId")] Empleo empleo, IFormFile imagen)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+           // {
+
+                // Verificar si se ha proporcionado una imagen         
+                if (imagen != null && imagen.Length > 0)
+                {
+                    // Copiar archivo de imagen
+                    string strRutaImagenes = Path.Combine(_webHostEnvironment.WebRootPath, "imagenes");
+                    string strExtension = Path.GetExtension(imagen.FileName);
+                    string strNombreFichero = Guid.NewGuid().ToString() + strExtension;
+                    string strRutaFichero = Path.Combine(strRutaImagenes, strNombreFichero);
+                    using (var fileStream = new FileStream(strRutaFichero, FileMode.Create))
+                    {
+                        imagen.CopyTo(fileStream);
+                    }
+
+                    // Asignar el nombre del archivo al producto
+                    empleo.Imagen = strNombreFichero;
+                }
                 _context.Add(empleo);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            //    return RedirectToAction(nameof(Index));
+           // }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Descripcion", empleo.CategoriaId);
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Email", empleo.ClienteId);
             ViewData["UbicacionId"] = new SelectList(_context.Ubicaciones, "Id", "Ciudad", empleo.UbicacionId);
-            return View(empleo);
+            //  return View(empleo);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Empleos/Edit/5
@@ -86,6 +108,8 @@ namespace modulAR_M.Caro.Controllers
             }
 
             var empleo = await _context.Empleos.FindAsync(id);
+            empleo.Fecha = DateTime.Today;
+
             if (empleo == null)
             {
                 return NotFound();
@@ -108,12 +132,20 @@ namespace modulAR_M.Caro.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+       //     if (ModelState.IsValid)
+         //   {
                 try
                 {
-                    _context.Update(empleo);
-                    await _context.SaveChangesAsync();
+
+                // Recuperar el producto original de la base de datos con la imagen actual
+                var originalEmpleo = await _context.Empleos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+
+                // Restaurar la propiedad Imagen del producto original al modelo antes de actualizar
+                empleo.Imagen = originalEmpleo.Imagen;
+
+                _context.Update(empleo);
+                await _context.SaveChangesAsync();
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -126,12 +158,13 @@ namespace modulAR_M.Caro.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
-            }
+             //   return RedirectToAction(nameof(Index));
+        //  }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Descripcion", empleo.CategoriaId);
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Email", empleo.ClienteId);
             ViewData["UbicacionId"] = new SelectList(_context.Ubicaciones, "Id", "Ciudad", empleo.UbicacionId);
-            return View(empleo);
+            //   return View(empleo);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Empleos/Delete/5
