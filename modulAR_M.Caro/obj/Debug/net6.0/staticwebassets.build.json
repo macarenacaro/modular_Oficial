@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vcPwaXsJi8bjJAqgLPWsd30/ff4c/XYRVixJTAX+oWQ=",
+  "Hash": "YpyeKGCewEltIQwibSjRbwnQxBpZxwPmCEIb83p75EA=",
   "Source": "modulAR_M.Caro",
   "BasePath": "_content/modulAR_M.Caro",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\mcaro\\OneDrive\\Documentos\\2.IES MARE NOSTRUM\\1.ENTORNO DESARROLLO SERVIDOR\\macarenacaro\\modular_Oficial\\modulAR\\modulAR_M.Caro\\wwwroot\\imagenes\\22605bad-42f0-476a-8936-c3484c2d2da9.png",
+      "SourceId": "modulAR_M.Caro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mcaro\\OneDrive\\Documentos\\2.IES MARE NOSTRUM\\1.ENTORNO DESARROLLO SERVIDOR\\macarenacaro\\modular_Oficial\\modulAR\\modulAR_M.Caro\\wwwroot\\",
+      "BasePath": "_content/modulAR_M.Caro",
+      "RelativePath": "imagenes/22605bad-42f0-476a-8936-c3484c2d2da9.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\22605bad-42f0-476a-8936-c3484c2d2da9.png"
     },
     {
       "Identity": "C:\\Users\\mcaro\\OneDrive\\Documentos\\2.IES MARE NOSTRUM\\1.ENTORNO DESARROLLO SERVIDOR\\macarenacaro\\modular_Oficial\\modulAR\\modulAR_M.Caro\\wwwroot\\js\\site.js",

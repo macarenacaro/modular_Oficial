@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace modulAR_M.Caro.Controllers
     public class ClientesController : Controller
     {
         private readonly MvcModularContexto _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ClientesController(MvcModularContexto context)
+        public ClientesController(MvcModularContexto context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Clientes
@@ -57,11 +60,28 @@ namespace modulAR_M.Caro.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nif,Nombre,Email,Telefono,Direccion,Poblacion,CodigoPostal,UbicacionId,Imagen")] Cliente cliente, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,Nif,Nombre,Email,Telefono,Direccion,Poblacion,CodigoPostal,UbicacionId,Imagen")] Cliente cliente, IFormFile imagen)
         {
-          //  if (ModelState.IsValid)
-          // {
-                _context.Add(cliente);
+            // Verificar si se ha proporcionado una imagen
+            // Verificar si se ha proporcionado una imagen
+            if (imagen != null && imagen.Length > 0)
+            {
+                // Copiar archivo de imagen
+                string strRutaImagenes = Path.Combine(_webHostEnvironment.WebRootPath, "imagenes");
+                string strExtension = Path.GetExtension(imagen.FileName);
+                string strNombreFichero = Guid.NewGuid().ToString() + strExtension;
+                string strRutaFichero = Path.Combine(strRutaImagenes, strNombreFichero);
+                using (var fileStream = new FileStream(strRutaFichero, FileMode.Create))
+                {
+                    imagen.CopyTo(fileStream);
+                }
+
+                // Asignar el nombre del archivo al producto
+                cliente.Imagen = strNombreFichero;
+            }
+
+
+            _context.Add(cliente);
                 await _context.SaveChangesAsync();
            //     return RedirectToAction(nameof(Index));
            // }

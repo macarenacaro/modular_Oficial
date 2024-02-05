@@ -13,10 +13,12 @@ namespace modulAR_M.Caro.Controllers
     public class EmpleosController : Controller
     {
         private readonly MvcModularContexto _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public EmpleosController(MvcModularContexto context)
+        public EmpleosController(MvcModularContexto context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Empleos

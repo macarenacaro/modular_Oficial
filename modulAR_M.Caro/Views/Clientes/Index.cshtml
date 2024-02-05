@@ -76,7 +76,8 @@
                 @Html.DisplayFor(modelItem => item.Ubicacion.Ciudad)
             </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Imagen)
+                    <img src="~/imagenes/@item.Imagen" style="border-radius: 10px; object-fit: cover; " width="50px" height="50px" />
+                    @* @Html.DisplayFor(modelItem => item.Imagen)*@ 
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |

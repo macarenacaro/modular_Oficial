@@ -13,10 +13,12 @@ namespace modulAR_M.Caro.Controllers
     public class ProyectosController : Controller
     {
         private readonly MvcModularContexto _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProyectosController(MvcModularContexto context)
+        public ProyectosController(MvcModularContexto context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Proyectos

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\mcaro\\OneDrive\\Documentos\\2.IES MARE NOSTRUM\\1.ENTORNO DESARROLLO SERVIDOR\\macarenacaro\\modular_Oficial\\modulAR\\modulAR_M.Caro\\wwwroot\\imagenes\\22605bad-42f0-476a-8936-c3484c2d2da9.png",
+      "PackagePath": "staticwebassets\\imagenes\\22605bad-42f0-476a-8936-c3484c2d2da9.png"
+    },
+    {
       "Id": "C:\\Users\\mcaro\\OneDrive\\Documentos\\2.IES MARE NOSTRUM\\1.ENTORNO DESARROLLO SERVIDOR\\macarenacaro\\modular_Oficial\\modulAR\\modulAR_M.Caro\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
