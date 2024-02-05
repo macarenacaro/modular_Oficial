@@ -36,6 +36,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Ubicacion)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -66,6 +69,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Ubicacion.Ciudad)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imagen)
+                </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |

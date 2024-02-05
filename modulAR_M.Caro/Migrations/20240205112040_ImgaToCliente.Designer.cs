@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using modulAR_M.Caro.Data;
 
@@ -11,9 +12,10 @@ using modulAR_M.Caro.Data;
 namespace modulAR_M.Caro.Migrations
 {
     [DbContext(typeof(MvcModularContexto))]
-    partial class MvcModularContextoModelSnapshot : ModelSnapshot
+    [Migration("20240205112040_ImgaToCliente")]
+    partial class ImgaToCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

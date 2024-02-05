@@ -22,6 +22,9 @@ namespace modulAR_M.Caro.Models
         public int? UbicacionId { get; set; }
         public Ubicacion Ubicacion { get; set; }
 
+        [Required(ErrorMessage = "La imagen es un campo requerido.")]
+        public string Imagen { get; set; }
+
         public ICollection<Pedido> Pedidos { get; set; }
         public ICollection<Postulacion> Postulacion { get; set; }
     }

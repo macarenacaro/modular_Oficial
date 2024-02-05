@@ -57,7 +57,7 @@ namespace modulAR_M.Caro.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nif,Nombre,Email,Telefono,Direccion,Poblacion,CodigoPostal,UbicacionId")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("Id,Nif,Nombre,Email,Telefono,Direccion,Poblacion,CodigoPostal,UbicacionId,Imagen")] Cliente cliente, IFormFile file)
         {
             if (ModelState.IsValid)
             {
