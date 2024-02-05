@@ -58,13 +58,13 @@ namespace modulAR_M.Caro.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Pais,Ciudad,Poblacion")] Ubicacion ubicacion)
         {
-            if (ModelState.IsValid)
-            {
+           // if (ModelState.IsValid)
+          //  {
                 _context.Add(ubicacion);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(ubicacion);
+          //  }
+          //  return View(ubicacion);
         }
 
         // GET: Ubicaciones/Edit/5
