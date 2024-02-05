@@ -20,8 +20,5 @@ namespace modulAR_M.Caro.Models
 
         public int ProcesoId { get; set; }
         public Proceso? Proceso { get; set; }
-
-        public ICollection<Estado>? Estados { get; set; }
-
     }
 }

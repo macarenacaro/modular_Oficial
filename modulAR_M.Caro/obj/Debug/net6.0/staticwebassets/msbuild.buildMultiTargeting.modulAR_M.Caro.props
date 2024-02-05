@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\modulAR_M.Caro.props" />
+</Project>

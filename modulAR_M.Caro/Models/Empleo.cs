@@ -32,22 +32,13 @@ namespace modulAR_M.Caro.Models
         [Required(ErrorMessage = "El escaparate es un campo requerido.")]
         public bool? Escaparate { get; set; }
 
-        public int PostulacionId { get; set; }
-        public Postulacion? Postulacion { get; set; }
-
         [Required(ErrorMessage = "El ID de la categoría es un campo requerido.")]
         public int CategoriaId { get; set; }
-  
         public Categoria? Categoria { get; set; }
 
-        [Required(ErrorMessage = "El ID de la ubicación es un campo requerido.")]
+        [Required(ErrorMessage = "La ubicación es un campo requerido.")]
         public int UbicacionId { get; set; }
         public Ubicacion? Ubicacion { get; set; }
-
         public ICollection<Postulacion> Postulaciones { get; set; }
-        public ICollection<Categoria> Categorias { get; set; }
-
-        public ICollection<Ubicacion> Ubicaciones { get; set; }
-
     }
 }

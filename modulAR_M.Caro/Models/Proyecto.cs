@@ -52,16 +52,11 @@ namespace modulAR_M.Caro.Models
 
         public Categoria? Categoria { get; set; }
 
-        [Required(ErrorMessage = "El ID de la ubicación es un campo requerido.")]
+        [Required(ErrorMessage = "La ubicación es un campo requerido.")]
         public int UbicacionId { get; set; }
         public Ubicacion? Ubicacion { get; set; }
 
-
-
         public ICollection<Comentario> Comentarios { get; set; }
-        public ICollection<Categoria> Categorias { get; set; }
-
-        public ICollection<Ubicacion> Ubicaciones { get; set; }
         public ICollection<Detalle>? Detalles { get; set; }
 
     }

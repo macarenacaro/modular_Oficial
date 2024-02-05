@@ -9,7 +9,5 @@
         public int ProyectoId { get; set; }
 
         public Proyecto? Proyecto { get; set; }
-        public ICollection<Proyecto> Proyectos { get; set; }
-
     }
 }

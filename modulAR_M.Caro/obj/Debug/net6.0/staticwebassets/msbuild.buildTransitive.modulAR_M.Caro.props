@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\modulAR_M.Caro.props" />
+</Project>
