@@ -256,3 +256,6 @@ C:\Users\mcaro\OneDrive\Documentos\2.IES MARE NOSTRUM\1.ENTORNO DESARROLLO SERVI
 C:\Users\mcaro\OneDrive\Documentos\2.IES MARE NOSTRUM\1.ENTORNO DESARROLLO SERVIDOR\macarenacaro\modular_Oficial\modulAR\modulAR_M.Caro\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\mcaro\OneDrive\Documentos\2.IES MARE NOSTRUM\1.ENTORNO DESARROLLO SERVIDOR\macarenacaro\modular_Oficial\modulAR\modulAR_M.Caro\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\mcaro\OneDrive\Documentos\2.IES MARE NOSTRUM\1.ENTORNO DESARROLLO SERVIDOR\macarenacaro\modular_Oficial\modulAR\modulAR_M.Caro\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\mcaro\OneDrive\Documentos\2.IES MARE NOSTRUM\1.ENTORNO DESARROLLO SERVIDOR\macarenacaro\modular_Oficial\modulAR\modulAR_M.Caro\bin\Debug\net6.0\JetBrains.Annotations.dll
+C:\Users\mcaro\OneDrive\Documentos\2.IES MARE NOSTRUM\1.ENTORNO DESARROLLO SERVIDOR\macarenacaro\modular_Oficial\modulAR\modulAR_M.Caro\bin\Debug\net6.0\X.PagedList.dll
+C:\Users\mcaro\OneDrive\Documentos\2.IES MARE NOSTRUM\1.ENTORNO DESARROLLO SERVIDOR\macarenacaro\modular_Oficial\modulAR\modulAR_M.Caro\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll
